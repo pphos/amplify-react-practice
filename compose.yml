@@ -2,12 +2,11 @@ services:
   amplify:
     build:
       context: .
-      args:
-        - PROJECT_ROOT=/workspace
+    user: node
     tty: true
     volumes:
       # Forwards the local Docker socket to the container.
       - /var/run/docker.sock:/var/run/docker-host.sock
-      - .:/workspace:cached
-      - ~/.aws/:/root/.aws
-    working_dir: /workspace
+      - .:/home/node/workspace:cached
+      - ~/.aws/:/home/node/.aws
+    working_dir: /home/node/workspace
