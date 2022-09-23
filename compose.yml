@@ -3,6 +3,8 @@ services:
     build:
       context: .
     user: node
+    ports:
+      - 20002:20002
     tty: true
     volumes:
       # Forwards the local Docker socket to the container.
